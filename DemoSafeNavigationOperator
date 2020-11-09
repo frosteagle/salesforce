@@ -1,0 +1,36 @@
+public class DemoSafeNavigationOperator {
+    private String condition = 'Edge Communications'; //Existing account in your environment
+    private String exampleCondition = ''; //Non-existent account
+    private Account query = [SELECT Id, Name FROM Account WHERE Name = :condition LIMIT 1];
+    
+    public void method1() {
+        Account acc = query;
+        System.debug('Account Name : ' + acc.Name);
+    }
+    
+    public void method2() {
+        Account acc = new Account();
+        System.debug('Account Name : ' + acc.Name);
+    }
+    
+    public void method3() {
+        Account acc;
+        System.debug('Account Name : ' + acc.Name);
+    }
+    
+    public void method4() {
+        Account acc;
+        System.debug('Account Name : ' + acc?.Name);
+    }
+    
+    public void oldExample() {
+        List<Account> result = [SELECT Id, Name FROM Account WHERE Name = :exampleCondition LIMIT 1];
+        if(result.size() > 0) {
+            System.debug('Account Name : ' + result[0].Name);
+        }
+    }
+    
+    public void newExample() {
+        System.debug('Account Name : ' + [SELECT Id, Name FROM Account WHERE Name = :exampleCondition LIMIT 1]?.Name);
+    }
+}

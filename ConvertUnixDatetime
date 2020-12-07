@@ -1,0 +1,11 @@
+//--Have a unix datetime variable (default is 10 digit long)
+String unixDatetime = '1605754644';
+
+//--Add triple 0, behind the variable (to manage milisecond)
+unixDatetime = unixDatetime + '000';
+
+//--Create Salesforce Datetime variable
+Datetime dt;
+
+//--Begin converting
+dt = Datetime.newInstance(long.valueOf(unixDateTime));

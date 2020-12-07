@@ -1,8 +1,0 @@
-//--Execute using anonymous window, execute using other method to check different result of context type.
-
-Request reqInfo = Request.getCurrent();
-String currentRequestId = reqInfo.getRequestId();
-Quiddity currentType = reqInfo.getQuiddity();
-System.debug('Debug: ' + currentType);
-
-//--For full list of the context type available in Salesforce, search for 'Quiddity Enum' in Apex Developer Guide

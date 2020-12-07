@@ -1,3 +1,8 @@
+//--Try run this code in anonymous block
+//--You can change condition, query, etc to suit your environment
+//--This safe navigation demo is to show you which code could throw exception if wrote normally without using safe navigation operator
+//--Example format is [Object]?.[Field]
+
 public class DemoSafeNavigationOperator {
     private String condition = 'Edge Communications'; //Existing account in your environment
     private String exampleCondition = ''; //Non-existent account
@@ -22,7 +27,9 @@ public class DemoSafeNavigationOperator {
         Account acc;
         System.debug('Account Name : ' + acc?.Name);
     }
-    
+
+//--By using this operator, some code can be shortened and exception can be avoided
+
     public void oldExample() {
         List<Account> result = [SELECT Id, Name FROM Account WHERE Name = :exampleCondition LIMIT 1];
         if(result.size() > 0) {

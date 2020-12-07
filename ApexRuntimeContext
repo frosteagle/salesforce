@@ -1,0 +1,9 @@
+//--Test execute using anonymous window is possible, execute using other method to check different result of context type.
+
+Request reqInfo = Request.getCurrent();             //--Get current request, this means whatever code running right now
+String currentRequestId = reqInfo.getRequestId();   //--Get the request Id
+Quiddity currentType = reqInfo.getQuiddity();       //--Compare into the type
+System.debug('Debug: ' + currentType);              //--Try system debug to show the result
+
+//--This code can be used to create condition based on type of apex code running
+//--For full list of the context type available in Salesforce, search for 'Quiddity Enum' in Apex Developer Guide

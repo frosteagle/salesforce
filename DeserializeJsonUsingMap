@@ -1,0 +1,18 @@
+//--Raw JSON example
+// {
+//   "message": {
+//     "document": {
+//       "text": "value"
+//     }
+//   }
+// }
+
+//--This code can be run in anonymous block
+
+String jsonInput = '{"message": {"document":{"text":"value"}}}';                        //--store the JSON as string
+Map<String, Object> data = (Map<String, Object>) JSON.deserializeUntyped(jsonInput);    //--create first map, this will breakdown all JSON into Object
+Map<String, Object> message = (Map<String, Object>) data.get('message');                //--using 'get' function from map to get the value of a map
+Map<String, Object> document = (Map<String, Object>) message.get('documents');          //--you can repeat the step as needed
+String s = String.valueOf(document?.get('text'));
+System.debug('test : ' + s);
+System.debug('caseBlank : ' + String.isBlank(s));

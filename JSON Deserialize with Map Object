@@ -1,7 +1,0 @@
-String jsonInput = '{"message": {"document":{"text":"value"}}}';
-Map<String, Object> data = (Map<String, Object>) JSON.deserializeUntyped(jsonInput);
-Map<String, Object> message = (Map<String, Object>) data.get('message');
-Map<String, Object> document = (Map<String, Object>) message.get('documents');
-String s = String.valueOf(document?.get('text'));
-System.debug('test : ' + s);
-System.debug('caseBlank : ' + String.isBlank(s));
